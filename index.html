@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keputusan Wali Kota Tangerang Selatan</title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 40px 60px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header img {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 5px 0;
+      font-size: 18pt;
+      text-transform: uppercase;
+    }
+
+    .title {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 20px;
+      text-decoration: underline;
+    }
+
+    .content {
+      margin-top: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    td {
+      vertical-align: top;
+      padding: 3px 0;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: right;
+    }
+
+    .footer p {
+      margin: 3px 0;
+    }
+
+    hr {
+      border: 0;
+      border-top: 2px solid #000;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="src/logo.png" alt="Logo MYASN">
+      <h2>WALI KOTA TANGERANG SELATAN</h2>
+      <hr>
+      <h3>PETIKAN<br>KEPUTUSAN WALI KOTA TANGERANG SELATAN</h3>
+      <p>Nomor : 808.1.4.5/Kep.73-Huk/2024</p>
+      <p><strong>TENTANG</strong></p>
+      <p><strong>PENGANGKATAN MENJADI PEGAWAI NEGERI SIPIL<br>WALIKOTA TANGERANG SELATAN</strong></p>
+    </div>
+
+    <div class="content">
+      <p><strong>Menimbang</strong> : dst;<br>
+      <strong>Mengingat</strong> : dst;<br>
+      <strong>Memperhatikan</strong> : Persetujuan teknis <em>Kepala Kantor Regional III BKN</em> Nomor : <strong>DG-23674000362</strong> tanggal <strong>08-05-2025</strong>.</p>
+
+      <p><strong>MEMUTUSKAN :</strong></p>
+      <p><strong>Menetapkan :</strong> Kenaikan Pangkat Pegawai Negeri Sipil Atas Nama :</p>
+
+      <table>
+        <tr><td>1.</td><td>Nomor</td><td>: 279</td></tr>
+        <tr><td>2.</td><td>Nama</td><td>: Detty Aria Sukowati, S.E</td></tr>
+        <tr><td>3.</td><td>Tempat/Tanggal Lahir</td><td>: Jakarta, 03-01-1983</td></tr>
+        <tr><td>4.</td><td>NIP</td><td id="nipField">: 19830103204102007</td></tr>
+        <tr><td>5.</td><td>Pendidikan</td><td>: S-1 Ekonomi</td></tr>
+        <tr><td>6.</td><td>Pangkat/Golongan</td><td>: Penata Tingkat I / III/d / 28-10-2024</td></tr>
+        <tr><td>7.</td><td>Jabatan</td><td>: Staf DPMPTSP</td></tr>
+        <tr><td>8.</td><td>Masa Kerja Golongan</td><td>: 18 Tahun 10 Bulan</td></tr>
+        <tr><td>9.</td><td>Gaji Pokok</td><td>: Rp. 26.295.000,-</td></tr>
+        <tr><td>10.</td><td>Unit kerja</td><td>: DPMPTSP</td></tr>
+        <tr><td>11.</td><td>Instansi</td><td>: PEMERINTAH KOTA TANGERANG SELATAN</td></tr>
+      </table>
+
+      <p><strong>KEDUA</strong> : Terhitung mulai tanggal <strong>28-10-2024</strong> dinaikkan menjadi <strong>Pegawai Negeri Sipil</strong> golongan ruang <strong>III/b</strong>, dengan masa kerja golongan <strong>18 Tahun 10 Bulan</strong>, dan diberikan gaji pokok sebesar <strong>Rp. 26.295.000,-</strong>, ditambah dengan penghasilan lain berdasarkan ketentuan peraturan perundang-undangan yang berlaku.</p>
+
+      <p><strong>KETIGA</strong> : Keputusan wali kota ini mulai berlaku pada tanggal ditetapkan, apabila terdapat kekeliruan akan dilakukan perbaikan sebagaimana mestinya.</p>
+    </div>
+
+    <div class="footer">
+      <p>Ditetapkan di : Tangerang Selatan</p>
+      <p>Pada tanggal : 28 Oktober 2024</p>
+      <br><br>
+      <p><strong>WALI KOTA TANGERANG SELATAN</strong></p>
+      <br><br><br>
+      <p><strong>(........................................)</strong></p>
+    </div>
+  </div>
+
+  <script>
+    // Cegah akses langsung tanpa isi NIP
+    const nip = localStorage.getItem("nip");
+    if (!nip) {
+      alert("Silakan masukkan NIP Anda terlebih dahulu!");
+      window.location.href = "home.html";
+    } else {
+      // tampilkan NIP di halaman
+      document.getElementById("nipField").innerHTML = `: ${nip}`;
+    }
+  </script>
+</body>
+</html>

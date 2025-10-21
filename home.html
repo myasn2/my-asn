@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cari Data Pegawai - MYASN</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 350px;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 25px;
+      color: #1e40af;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1e40af;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="src/logo.png" alt="Logo MYASN" class="logo">
+    <h1>Cari Data Pegawai</h1>
+    <form id="nipForm">
+      <input type="text" id="nip" placeholder="Masukkan NIP Anda" required>
+      <button type="submit">Cari</button>
+      <div class="error" id="errorMsg"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("nipForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nip = document.getElementById("nip").value.trim();
+
+      // Contoh NIP yang benar
+      if (nip === "19830103204102007") {
+        localStorage.setItem("nip", nip);
+        window.location.href = "index.html";
+      } else {
+        errorMsg.textContent = "❌ NIP tidak ditemukan, coba lagi.";
+      }
+    });
+  </script>
+</body>
+</html>
