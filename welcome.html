@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Datang - ASN Digital</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #2196f3 0%, #42a5f5 100%);
+      position: relative;
+      text-align: center;
+    }
+
+    /* Peta Indonesia transparan */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/d/d3/BlankMap-Indonesia-dots.svg') center/contain no-repeat;
+      opacity: 0.15;
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .logo {
+      background: white;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(255,255,255,0.3);
+      margin: 25px 0;
+    }
+
+    .logo img {
+      width: 90px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .highlight {
+      color: #d32f2f;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 8px 0;
+      opacity: 0.9;
+    }
+
+    .badge {
+      background: white;
+      color: #1565c0;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      padding: 10px 28px;
+      border-radius: 25px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-login {
+      background: #0d47a1;
+      color: white;
+    }
+
+    .btn-login:hover {
+      background: #1565c0;
+    }
+
+    .btn-reset {
+      background: white;
+      color: #0d47a1;
+    }
+
+    .btn-reset:hover {
+      background: #e3f2fd;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      .logo { width: 100px; height: 100px; }
+      .logo img { width: 60px; }
+      .buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Selamat Datang di <span class="highlight">ASN DIGITAL</span></h1>
+    <p>Platform Digital Manajemen ASN Terpadu</p>
+    <div class="badge">Badan Kepegawaian Negara</div>
+
+    <div class="logo">
+      <img src="bkn.png" alt="BKN Logo">
+    </div>
+
+    <div class="buttons">
+      <a href="home.html" class="btn btn-login">Login</a>
+    </div>
+  </div>
+</body>
+</html>
