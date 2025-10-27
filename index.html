@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cek Data ASN Berdasarkan NIP - MyASN</title>
+  <title>Data ASN Pemerintah Kota Tangerang Selatan - MyASN</title>
 
   <style>
     body {
       font-family: "Poppins", sans-serif;
       background: linear-gradient(135deg, #e0f2fe, #f8fafc);
       margin: 0;
-      padding: 0;
+      padding: 20px;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
+      flex-direction: column;
+      align-items: center;
     }
 
     .container {
       background: #fff;
       width: 420px;
-      margin-top: 60px;
+      margin-top: 30px;
       padding: 30px 40px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
@@ -54,6 +53,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
+      margin-bottom: 15px;
     }
 
     td {
@@ -75,84 +75,150 @@
     .catatan {
       font-size: 12px;
       color: #6b7280;
-      margin-top: 25px;
+      margin-top: 10px;
       text-align: justify;
     }
 
     .catatan strong {
       color: #ef4444;
     }
+
+    hr {
+      border: none;
+      border-top: 1px dashed #ccc;
+      margin: 25px 0;
+    }
+
+    .logout {
+      margin-top: 15px;
+      display: block;
+      text-align: center;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 6px;
+      width: 120px;
+      transition: background 0.3s;
+    }
+
+    .logout:hover {
+      background: #1e3a8a;
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" id="dataContainer">
     <div class="logo">
       <img src="logo.png" alt="Logo MyASN">
     </div>
 
-    <h2>Cek Data ASN Berdasarkan NIP</h2>
+    <h2>Data ASN Berdasarkan NIP</h2>
 
     <p class="hasil">Hasil Data:</p>
 
-    <table>
-      <tr>
-        <td>Nama</td>
-        <td>: Detty Aria Sukowati, S.E</td>
-      </tr>
-      <tr>
-        <td>Jabatan</td>
-        <td>: Staf DPMPTSP</td>
-      </tr>
-      <tr>
-        <td>NIP</td>
-        <td>: 19830103204102007</td>
-      </tr>
-      <tr>
-        <td>Tempat/Tanggal Lahir</td>
-        <td>: Jakarta, 03 Januari 1983</td>
-      </tr>
-      <tr>
-        <td>Pendidikan Terakhir</td>
-        <td>: S-1 Ekonomi</td>
-      </tr>
-      <tr>
-        <td>Pangkat/Golongan</td>
-        <td>: Penata Tingkat I / III/d</td>
-      </tr>
-      <tr>
-        <td>TMT CASN</td>
-        <td>: 28 Oktober 2024</td>
-      </tr>
-      <tr>
-        <td>TMT ASN</td>
-        <td>: - </td>
-      </tr>
-      <tr>
-        <td>Golongan</td>
-        <td>: IV/d</td>
-      </tr>
-      <tr>
-        <td>Gaji Pokok</td>
-        <td>: Rp. 26.295.000,-</td>
-      </tr>
-      <tr>
-        <td>Unit Kerja</td>
-        <td>: DPMPTSP</td>
-      </tr>
-      <tr>
-        <td>Instansi Kerja</td>
-        <td>: Pemerintah Kota Tangerang Selatan</td>
-      </tr>
-      <tr>
-        <td>Kedudukan ASN</td>
-        <td>: Aktif</td>
-      </tr>
-    </table>
+    <table id="dataTable"></table>
 
-    <p class="catatan">
-      <strong>*Catatan:</strong> Jika data tidak sesuai, harap hubungi BKD atau Biro Kepegawaian dengan membawa dokumen otentik.
-    </p>
+    <p class="catatan"><strong>*Catatan:</strong> Jika data tidak sesuai, harap hubungi BKD atau Biro Kepegawaian dengan membawa dokumen otentik.</p>
+
+    <a href="home.html" class="logout" onclick="localStorage.clear()">Keluar</a>
   </div>
+
+  <script>
+    const nip = localStorage.getItem("nip");
+
+    const dataASN = {
+      "19830103204102007": {
+        nama: "Detty Aria Sukowati, S.E",
+        jabatan: "Staf DPMPTSP",
+        nip: "19830103204102007",
+        ttl: "Jakarta, 03 Januari 1983",
+        pendidikan: "S-1 Ekonomi",
+        pangkat: "Penata Tingkat I / III/d",
+        tmt_casn: "27 Maret 2025",
+        tmt_asn: "",
+        golongan: "IV/d",
+        gaji: "Rp. 26.295.000,-",
+        unit: "DPMPTSP",
+        instansi: "Pemerintah Kota Tangerang Selatan",
+        status: "Aktif"
+      },
+      "199401202025011001": {
+        nama: "Muhamad Dwi Nurul Iman, S.T",
+        jabatan: "Staf Pelayanan",
+        nip: "199401202025011001",
+        ttl: "Tangerang, 20 Januari 1994",
+        pendidikan: "S-1 Teknik",
+        pangkat: "Penata Tingkat I / III/d",
+        tmt_casn: "20 Januari 2025",
+        tmt_asn: "",
+        golongan: "III/d",
+        gaji: "Rp. 22.295.000,-",
+        unit: "DPMPTSP",
+        instansi: "Pemerintah Kota Tangerang Selatan",
+        status: "Aktif"
+      },
+      "198606082025012001": {
+        nama: "Ida Fitriyanti, S.Pd",
+        jabatan: "Staf Pelayanan",
+        nip: "198606082025012001",
+        ttl: "Tangerang, 08 Juni 1986",
+        pendidikan: "S-1 Pendidikan Agama Islam",
+        pangkat: "Penata Tingkat I / III/d",
+        tmt_casn: "20 Januari 2025",
+        tmt_asn: "",
+        golongan: "III/d",
+        gaji: "Rp. 16.000.000,-",
+        unit: "Dinas Kependudukan dan Pencatatan Sipil",
+        instansi: "Pemerintah Kota Tangerang Selatan",
+        status: "Aktif"
+      },
+      "200210102024102001": {
+        nama: "Melina Aprilia, S.M",
+        jabatan: "Admin DPMPTSP",
+        nip: "200210102024102001",
+        ttl: "Wonosobo, 10 Oktober 2002",
+        pendidikan: "S-1 Manajemen",
+        pangkat: "Pembina Utama Madya / IV/d",
+        tmt_casn: "28 Desember 2024",
+        tmt_asn: "",
+        golongan: "IV/d",
+        gaji: "Rp. 22.295.000,-",
+        unit: "DPMPTSP",
+        instansi: "Pemerintah Kota Tangerang Selatan",
+        status: "Aktif"
+      }
+    };
+
+    const user = dataASN[nip];
+    const table = document.getElementById("dataTable");
+
+    if (!user) {
+      document.body.innerHTML = `
+        <div style="text-align:center; margin-top:50px;">
+          <p style="color:red; font-weight:bold;">Data tidak ditemukan atau sesi login sudah berakhir.</p>
+          <a href="home.html" style="color:#2563eb; text-decoration:none;">Kembali ke Login</a>
+        </div>
+      `;
+    } else {
+      const rows = `
+        <tr><td>Nama</td><td>: ${user.nama}</td></tr>
+        <tr><td>Jabatan</td><td>: ${user.jabatan}</td></tr>
+        <tr><td>NIP</td><td>: ${user.nip}</td></tr>
+        <tr><td>Tempat/Tanggal Lahir</td><td>: ${user.ttl}</td></tr>
+        <tr><td>Pendidikan Terakhir</td><td>: ${user.pendidikan}</td></tr>
+        <tr><td>Pangkat/Golongan</td><td>: ${user.pangkat}</td></tr>
+        <tr><td>TMT CASN</td><td>: ${user.tmt_casn}</td></tr>
+        <tr><td>TMT ASN</td><td>: ${user.tmt_asn}</td></tr>
+        <tr><td>Golongan</td><td>: ${user.golongan}</td></tr>
+        <tr><td>Gaji Pokok</td><td>: ${user.gaji}</td></tr>
+        <tr><td>Unit Kerja</td><td>: ${user.unit}</td></tr>
+        <tr><td>Instansi Kerja</td><td>: ${user.instansi}</td></tr>
+        <tr><td>Kedudukan ASN</td><td>: ${user.status}</td></tr>
+      `;
+      table.innerHTML = rows;
+    }
+  </script>
 </body>
 </html>
