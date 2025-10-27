@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cek Data ASN Berdasarkan NIP - MyASN</title>
+  <title>Login ASN - MyASN</title>
   <style>
     body {
       font-family: "Poppins", sans-serif;
@@ -70,29 +70,41 @@
 <body>
   <div class="container">
     <img src="logo.png" alt="Logo MyASN" class="logo" />
-    <h1>Cek Data ASN Berdasarkan NIP</h1>
-    <form id="nipForm">
+    <h1>Login ASN Berdasarkan NIP</h1>
+    <form id="loginForm">
       <input type="text" id="nip" placeholder="Masukkan NIP" required />
-      <button type="submit">Tampilkan</button>
+      <input type="password" id="password" placeholder="Masukkan Password" required />
+      <button type="submit">Login</button>
       <div class="error" id="errorMsg"></div>
     </form>
   </div>
 
   <script>
-    const form = document.getElementById("nipForm");
+    const form = document.getElementById("loginForm");
     const errorMsg = document.getElementById("errorMsg");
+
+    // Data login ASN
+    const dataASN = {
+      "19830103204102007": { nama: "Detty Aria Sukowati, S.E", password: "dety123" },
+      "199401202025011001": { nama: "Muhamad Dwi Nurul Iman, S.T", password: "iman123" },
+      "198606082025012001": { nama: "Ida Fitriyanti, S.Pd", password: "ida123" },
+      "200210102024102001": { nama: "Melina Aprilia, S.M", password: "melina123" },
+    };
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       const nip = document.getElementById("nip").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-      // Contoh: hanya satu NIP yang valid
-      if (nip === "19830103204102007") {
-        errorMsg.textContent = "";
+      const akun = dataASN[nip];
+
+      if (akun && akun.password === password) {
+        // Simpan NIP dan nama di localStorage agar index.html tahu siapa yang login
         localStorage.setItem("nip", nip);
+        localStorage.setItem("nama", akun.nama);
         window.location.href = "index.html";
       } else {
-        errorMsg.textContent = `❌ Data dengan NIP ${nip} tidak ditemukan.`;
+        errorMsg.textContent = "❌ NIP atau password salah.";
       }
     });
   </script>
